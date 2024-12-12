@@ -1,0 +1,87 @@
+{
+  "name": "pixi-tiled-loader",
+  "version": "0.0.0-development",
+  "description": "Tiled loader for Pixi.js.",
+  "keywords": [
+    "tiled",
+    "pixi"
+  ],
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./lib/index.mjs"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "types": "types/index.d.ts",
+  "files": [
+    "lib",
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "build": "rimraf dist lib types && npm run lint:fix && rollup -c && tsc",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "prepare": "husky install",
+    "prerelease": "npm run test:lint && npm run build",
+    "test": "tsc --project tsconfig.test.json && vitest run",
+    "test:lint": "eslint ./test",
+    "test:watch": "vitest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs}": [
+      "eslint --cache --fix --max-warnings 0"
+    ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@trezy-studios/eslint-config": "^2.2.2",
+    "@types/eslint": "^9",
+    "@types/eslint-plugin-security": "^3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-editorconfig": "^4.0.3",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^48.7.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-optimize-regex": "^1.2.1",
+    "eslint-plugin-promise": "^6.4.0",
+    "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-perf": "^3.3.2",
+    "eslint-plugin-react-prefer-function-component": "^3.3.0",
+    "eslint-plugin-security": "^2.1.1",
+    "eslint-plugin-sort-class-members": "^1.20.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "husky": "^8.0.0",
+    "pixi.js": "^8",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.18.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "pixi.js": "^8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@4.4.0"
+}

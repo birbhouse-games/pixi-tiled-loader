@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.json",
+	"files": [
+		".eslintrc.js",
+		"release.config.js",
+	],
+	"include": [
+		"./src/**/*",
+		"./lib/**/*",
+		"./test/**/*",
+		"./vitest.setup.ts",
+		"./vitest.workspace.ts"
+	]
+}
