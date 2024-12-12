@@ -1,17 +1,11 @@
 // Module imports
-import path from 'node:path'
-import esbuild from 'rollup-plugin-esbuild'
-import sourcemaps from 'rollup-plugin-sourcemaps'
 import commonjs from '@rollup/plugin-commonjs'
+import esbuild from 'rollup-plugin-esbuild'
+import fs from 'node:fs/promises'
 import json from '@rollup/plugin-json'
+import path from 'node:path'
 import resolve from '@rollup/plugin-node-resolve'
-
-
-
-
-
-// Local imports
-import repo from './package.json' assert { type: 'json' }
+import sourcemaps from 'rollup-plugin-sourcemaps'
 
 
 
@@ -48,7 +42,9 @@ const paths = {
 	library: path.join(process.cwd(), 'lib'),
 	source: path.join(process.cwd(), 'src'),
 }
-const external = Object.keys(repo.peerDependencies).map(convertPackageNameToRegExp)
+const packageJSONString = await fs.readFile('./package.json', 'utf8')
+const packageData = JSON.parse(packageJSONString)
+const external = Object.keys(packageData.peerDependencies).map(convertPackageNameToRegExp)
 
 
 
