@@ -32,8 +32,8 @@ export interface BaseTile {
 	/** @description The texture for this tile. */
 	texture?: Texture
 
-	/** @description The type of the tile. Displayed as "Class" in Tiled. */
-	type?: string,
+	/** @description The class of the tile. */
+	class?: string,
 
 	/** @description The width of the render bounding box. */
 	width: number,

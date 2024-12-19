@@ -23,6 +23,11 @@ export function parseObject(objectElement: Element): Ellipse | Point | Polygon |
 
 	parseCustomProperties(objectElement, object)
 
+	const classType = objectElement.getAttribute('type')
+	if (classType) {
+		object.class = classType
+	}
+
 	if (isPoint(object, objectElement)) {
 		// Do nothing
 	} else if (isPolygon(object, objectElement)) {

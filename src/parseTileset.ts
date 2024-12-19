@@ -117,7 +117,7 @@ export async function parseTileset(config: TiledTilesetLoaderConfig & {
 			const tileType = tileElement.getAttribute('type')
 
 			if (tileType) {
-				tile.type = tileType
+				tile.class = tileType
 			}
 
 			const tileImageElement = tileElement.querySelector<Element>('image')
