@@ -1,11 +1,12 @@
 // Local imports
-import { TiledObject } from './TiledObject';
+import { CustomProperties } from './CustomProperties'
+import { TiledObject } from './TiledObject'
 
 
 
 
 
-export interface Ellipse extends TiledObject {
+export interface Ellipse<CustomPropertiesType extends CustomProperties = CustomProperties> extends TiledObject<CustomPropertiesType> {
 	height: number,
 
 	type: 'ellipse',

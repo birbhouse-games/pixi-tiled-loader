@@ -6,10 +6,10 @@ import { type Vector2 } from './Vector2'
 
 
 
-export interface TiledObject extends Vector2{
+export interface TiledObject<CustomPropertiesType extends CustomProperties = CustomProperties> extends Vector2 {
 	class?: string,
 
-	customProperties?: CustomProperties,
+	customProperties?: CustomPropertiesType,
 
 	id: number,
 
