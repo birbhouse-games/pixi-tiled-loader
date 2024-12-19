@@ -1,5 +1,5 @@
-export interface CustomString {
+export interface CustomString<ValueType extends string = string> {
 	type: 'string',
 
-	value: string,
+	value: ValueType,
 }
