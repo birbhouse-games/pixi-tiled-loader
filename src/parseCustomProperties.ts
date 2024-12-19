@@ -70,7 +70,7 @@ export function parseCustomProperties<T extends { customProperties?: CustomPrope
 				} as CustomObject
 				break
 
-			case 'string':
+			default:
 				target.customProperties[customPropertyName] = {
 					type: customPropertyType,
 					value: customPropertyValue,
