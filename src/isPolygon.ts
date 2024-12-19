@@ -6,7 +6,7 @@ import { TiledObject } from './typedefs/TiledObject'
 
 
 
-export function isPolygon(object: Polygon | TiledObject, objectElement: Element): object is Polygon {
+export function isPolygon(object: Polygon | TiledObject, objectElement?: Element): object is Polygon {
 	const result = objectElement
 		? Boolean(objectElement.querySelector(':scope > polygon'))
 		: object.type === 'polygon'

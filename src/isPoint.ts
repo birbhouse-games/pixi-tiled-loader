@@ -6,7 +6,7 @@ import { Point } from './typedefs/Point'
 
 
 
-export function isPoint(object: Point | TiledObject, objectElement: Element): object is Point {
+export function isPoint(object: Point | TiledObject, objectElement?: Element): object is Point {
 	const result = objectElement
 		? Boolean(objectElement.querySelector(':scope > point'))
 		: object.type === 'point'

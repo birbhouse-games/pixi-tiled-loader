@@ -6,7 +6,7 @@ import { TiledObject } from './typedefs/TiledObject'
 
 
 
-export function isRectangle(object: Rectangle | TiledObject, objectElement: Element): object is Rectangle {
+export function isRectangle(object: Rectangle | TiledObject, objectElement?: Element): object is Rectangle {
 	const result = objectElement
 		? Boolean(
 			objectElement.getAttribute('height')
